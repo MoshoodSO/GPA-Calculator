@@ -42,7 +42,7 @@ const Index = () => {
             </div>
             <div>
               <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-                GP Calculator
+                GPA Genius
               </h1>
               <p className="text-primary-foreground/80 mt-1">
                 Track, analyze, and project your academic performance
@@ -116,7 +116,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t mt-12 py-6">
         <div className="container max-w-6xl mx-auto px-4 text-center text-sm text-muted-foreground">
-          <p>GP Calculator • Built for academic excellence</p>
+          <p>GPA Genius • Built for academic excellence</p>
         </div>
       </footer>
     </div>
