@@ -1,6 +1,4 @@
-
-
-Welcome to GPA Genius! 🎓💡
+ 🎓💡 Welcome to GPA Genius!
 > A smart GPA calculator app that helps students *calculate, track, and crush* their academic performance across semesters.
 
 Description
