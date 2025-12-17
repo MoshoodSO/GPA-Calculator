@@ -9,3 +9,15 @@
 - *Plan and project better outcomes* (get that academic win 🥳)
 
 Designed for *simplicity, accuracy, and ease* — fits students at all levels, from freshmen to grads.
+
+---
+
+## Project Info
+
+**Repository:**  
+https://github.com/MoshoodSO/GPA-Calculator/
+
+**Lovable Project URL:**  
+https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+
+---
