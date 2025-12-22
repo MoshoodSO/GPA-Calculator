@@ -14,10 +14,23 @@ Designed for *simplicity, accuracy, and ease* — fits students at all levels, f
 
 ## Project Info
 
+
 <!--**Repository:**  
 [Github Repo](https://github.com/MoshoodSO/GPA-Calculator/) -->
 
 **Lovable Project URL:**  
 [Project](https://lovable.dev/projects/1641c2ea-60df-42bb-80cd-8fd2a9898e58)
+
+---
+
+## Table of Contents
+
+- [Getting Started](#getting-started)
+- [Editing the Project](#how-can-i-edit-this-code)
+- [Technologies Used](#technologies-used)
+- [Deployment](#deployment)
+- [Custom Domain](#custom-domain)
+- [License](#license)
+- [Contact](#contact)
 
 ---
