@@ -19,6 +19,8 @@ Designed for *simplicity, accuracy, and ease* — fits students at all levels, f
 ![Demo](https://github.com/MoshoodSO/GPA-Calculator/blob/main/graphics/GPAgenius.gif)
 
 
+**Screenshots**
+
 <!--**Repository:**  
 [Github Repo](https://github.com/MoshoodSO/GPA-Calculator/) -->
 
