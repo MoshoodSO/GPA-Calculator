@@ -24,7 +24,8 @@ Designed for *simplicity, accuracy, and ease* — fits students at all levels, f
 | *Semester GPA Trends*                                                                        | *Smart Advice*                                                                                 | *GPA Projection*                                                                              |
 | ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | ![GPATrends](https://github.com/MoshoodSO/GPA-Calculator/blob/main/graphics/GPAtrend.png) | ![Advice](https://github.com/MoshoodSO/GPA-Calculator/blob/main/graphics/SmartAdvice.png) | ![GPAprojection](https://github.com/MoshoodSO/GPA-Calculator/blob/main/graphics/GradeProjection.png) |
-
+| Grading Scale Settings                                                  |
+|-------------------------------------------------------------------------|
 <!--**Repository:**  
 [Github Repo](https://github.com/MoshoodSO/GPA-Calculator/) -->
 
