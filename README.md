@@ -25,8 +25,8 @@ Designed for *simplicity, accuracy, and ease* — fits students at all levels, f
 | ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | ![GPATrends](https://github.com/MoshoodSO/GPA-Calculator/blob/main/graphics/GPAtrend.png) | ![Advice](https://github.com/MoshoodSO/GPA-Calculator/blob/main/graphics/SmartAdvice.png) | ![GPAprojection](https://github.com/MoshoodSO/GPA-Calculator/blob/main/graphics/GradeProjection.png) |
 
-| Grading Scale Settings                                                                                                    |
-|---------------------------------------------------------------------------------------------------------------------------|
+| Grading Scale Settings                                                                                                                            |
+|---------------------------------------------------------------------------------------------------------------------------------------------------|
 |![GradingScale](https://github.com/MoshoodSO/GPA-Calculator/blob/main/graphics/GradingScale.png) |
 <!--**Repository:**  
 [Github Repo](https://github.com/MoshoodSO/GPA-Calculator/) -->
