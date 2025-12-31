@@ -47,3 +47,8 @@ Designed for *simplicity, accuracy, and ease* — fits students at all levels, f
 - [Contact](#contact)
 
 ---
+---
+
+## Getting Started
+
+There are multiple ways to edit and manage the GPA Genius application depending on your preferred workflow.
