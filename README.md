@@ -52,6 +52,6 @@ Designed for *simplicity, accuracy, and ease* — fits students at all levels, f
 
 GPA Genius offers flexible editing and management options to fit your style. You can
 - Edit grades and courses directly in the GPA calculator
-- Import/export data from spreadsheets for bulk updates
+- Import/export your grading scales to suite your institution
 - Use the mobile app for on-the-go tweaks
 - Customize settings to match your academic workflow
