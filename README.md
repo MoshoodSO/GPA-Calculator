@@ -48,7 +48,7 @@ Designed for *simplicity, accuracy, and ease* — fits students at all levels, f
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
 GPA Genius offers flexible editing and management options to fit your style. You can
 - Edit grades and courses directly in the GPA calculator
