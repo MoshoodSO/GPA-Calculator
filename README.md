@@ -47,8 +47,11 @@ Designed for *simplicity, accuracy, and ease* — fits students at all levels, f
 - [Contact](#contact)
 
 ---
----
 
 ## Getting Started
 
-There are multiple ways to edit and manage the GPA Genius application depending on your preferred workflow.
+GPA Genius offers flexible editing and management options to fit your style. You can
+- Edit grades and courses directly in the GPA calculator
+- Import/export data from spreadsheets for bulk updates
+- Use the mobile app for on-the-go tweaks
+- Customize settings to match your academic workflow
