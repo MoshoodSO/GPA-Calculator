@@ -63,6 +63,6 @@ GPA Genius offers flexible editing and management options to fit your style. You
 
 Visit the Lovable project and start prompting:
 
-- s[Project](https://lovable.dev/projects/1641c2ea-60df-42bb-80cd-8fd2a9898e58)
+- [Project](https://lovable.dev/projects/1641c2ea-60df-42bb-80cd-8fd2a9898e58)
 
 Any changes made using Lovable are automatically committed to this repository.
