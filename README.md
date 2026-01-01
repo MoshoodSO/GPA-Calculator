@@ -57,12 +57,12 @@ GPA Genius offers flexible editing and management options to fit your style. You
 - Customize settings to match your academic workflow
 
 
-## How Can I Edit This Code?
+## 📝 How Can I Edit This Code?
 
 ### Use Lovable (Recommended)
 
 Visit the Lovable project and start prompting:
 
-[Project](https://lovable.dev/projects/1641c2ea-60df-42bb-80cd-8fd2a9898e58)
+- s[Project](https://lovable.dev/projects/1641c2ea-60df-42bb-80cd-8fd2a9898e58)
 
 Any changes made using Lovable are automatically committed to this repository.
