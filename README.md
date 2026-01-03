@@ -66,3 +66,23 @@ Visit the Lovable project and start prompting:
 - [Project](https://lovable.dev/projects/1641c2ea-60df-42bb-80cd-8fd2a9898e58)
 
 Any changes made using Lovable are automatically committed to this repository.
+
+
+---
+
+## ✏️ How Can I Edit This Code?
+
+### Option 1: Use Lovable (Recommended)
+
+Lovable provides a no-setup, AI-assisted development experience.
+
+👉 Visit the Lovable project:  
+https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+
+**Benefits of using Lovable:**
+- No local setup required
+- AI-powered editing and refactoring
+- Automatic commits to this GitHub repository
+- Instant preview of changes
+
+Any changes made using **Lovable** are automatically committed and synced with this repository.
