@@ -77,7 +77,7 @@ Any changes made using Lovable are automatically committed to this repository.
 Lovable provides a no-setup, AI-assisted development experience.
 
 👉 Visit the Lovable project:  
-https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+- [Project](https://lovable.dev/projects/1641c2ea-60df-42bb-80cd-8fd2a9898e58)
 
 **Benefits of using Lovable:**
 - No local setup required
