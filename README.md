@@ -101,7 +101,7 @@ Make sure the following tools are installed on your system:
 - **Git**
 
 Install Node.js using **nvm** (recommended):  
-https://github.com/nvm-sh/nvm#installing-and-updating
+  - https://github.com/nvm-sh/nvm#installing-and-updating
 
 ---
 
