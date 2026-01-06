@@ -86,3 +86,22 @@ Lovable provides a no-setup, AI-assisted development experience.
 - Instant preview of changes
 
 Any changes made using **Lovable** are automatically committed and synced with this repository.
+
+---
+
+### Option 2: Use Your Preferred IDE (Local Development)
+
+You can also work locally using your own development environment.
+#### 📋 Prerequisites
+
+Make sure the following tools are installed on your system:
+
+- **Node.js** (v18 or later recommended)
+- **npm**
+- **Git**
+
+Install Node.js using **nvm** (recommended):  
+https://github.com/nvm-sh/nvm#installing-and-updating
+
+---
+
