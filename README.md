@@ -105,3 +105,18 @@ Install Node.js using **nvm** (recommended):
 
 ---
 
+## 🛠️ Local Setup
+
+```sh
+# Clone the repository
+git clone https://github.com/MoshoodSO/GPA-Calculator.git
+
+# Navigate into the project directory
+cd GPA-Calculator
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
