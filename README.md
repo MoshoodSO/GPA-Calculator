@@ -1,5 +1,6 @@
 ## 🎓💡 Welcome to GPA Genius!
-> A smart GPA calculator app that helps students *calculate, track, and crush* their academic performance across semesters.
+> A smart GPA calculator app designed to empower students to take full control of their education. Beyond simple math, this tool allows you to calculate precise results in seconds, track your progress through intuitive visual dashboards, and crush your academic goals by setting targets that keep you motivated. Whether you are navigating your freshman year or finishing your degree, **GPA Genius** turns your data into a roadmap for success.
+
 
 ## 📝 Description
 *GPA Genius* 🔥 is a modern, slick GPA tool built with Lovable.dev — an AI-powered platform that turns ideas into full-stack web apps. The app lets students:
