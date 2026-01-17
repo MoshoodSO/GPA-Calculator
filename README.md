@@ -120,3 +120,7 @@ npm install
 # Start the development server
 npm run dev
 ```
+
+## 🙌 Credits
+
+Developed by [Shoyombo Moshood O.](https://linkedin.com/in/shoyombo-moshood-582003126/) as a personal project, this tool simplifies GPA calculations and enables users to track their academic goals effectively.
