@@ -13,7 +13,7 @@ Designed for *simplicity, accuracy, and ease* — fits students at all levels, f
 
 ---
 
-## 📁  Project Info
+## 📁  Project Displays
 
 **🎥 Demo**
 
