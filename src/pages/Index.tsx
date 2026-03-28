@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Semester, GradeScale, DEFAULT_GRADING_SCALE } from "@/types/gp";
 import { GradingScaleEditor } from "@/components/GradingScaleEditor";
 import { SemesterCard } from "@/components/SemesterCard";
@@ -7,11 +7,33 @@ import { AdvicePanel } from "@/components/AdvicePanel";
 import { ProjectionTool } from "@/components/ProjectionTool";
 import { StatsOverview } from "@/components/StatsOverview";
 import { Button } from "@/components/ui/button";
-import { Plus, Calculator, Sparkles } from "lucide-react";
+import { Plus, Calculator, Sparkles, Save } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
+
+const STORAGE_KEY_SEMESTERS = "gpa-genius-semesters";
+const STORAGE_KEY_SCALE = "gpa-genius-scale";
+
+const loadFromStorage = <T,>(key: string, fallback: T): T => {
+  try {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : fallback;
+  } catch {
+    return fallback;
+  }
+};
 
 const Index = () => {
-  const [scale, setScale] = useState<GradeScale[]>(DEFAULT_GRADING_SCALE);
-  const [semesters, setSemesters] = useState<Semester[]>([]);
+  const [scale, setScale] = useState<GradeScale[]>(() => loadFromStorage(STORAGE_KEY_SCALE, DEFAULT_GRADING_SCALE));
+  const [semesters, setSemesters] = useState<Semester[]>(() => loadFromStorage(STORAGE_KEY_SEMESTERS, []));
+
+  // Auto-save to localStorage on changes
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY_SEMESTERS, JSON.stringify(semesters));
+  }, [semesters]);
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY_SCALE, JSON.stringify(scale));
+  }, [scale]);
 
   const addSemester = () => {
     const newSemester: Semester = {
