@@ -23,58 +23,57 @@ export function calculateCGPA(semesters: Semester[]): number {
   return calculateSemesterGPA(allCourses);
 }
 
-export function getAdvice(semesters: Semester[], scale: GradeScale[]): string[] {
-  const advice: string[] = [];
-  const allCourses = semesters.flatMap(s => s.courses);
-  
-  if (allCourses.length === 0) {
-    return ["Add your courses to get personalized advice!"];
-  }
-  
-  // Find weak courses (below B grade)
-  const weakCourses = allCourses.filter(c => c.gradePoints < 4.0);
-  const strongCourses = allCourses.filter(c => c.gradePoints >= 4.0);
-  
-  if (weakCourses.length > 0) {
-    const weakestCourses = weakCourses.sort((a, b) => a.gradePoints - b.gradePoints).slice(0, 3);
-    advice.push(
-      `Focus on improving: ${weakestCourses.map(c => c.name).join(", ")}. Consider extra study sessions or tutoring.`
-    );
-  }
-  
-  // GPA trend analysis
-  if (semesters.length >= 2) {
-    const lastTwo = semesters.slice(-2);
-    if (lastTwo[1].gpa > lastTwo[0].gpa) {
-      advice.push("Great progress! Your GPA is trending upward. Keep up the momentum!");
-    } else if (lastTwo[1].gpa < lastTwo[0].gpa) {
-      advice.push("Your GPA dipped this semester. Review your study habits and time management.");
+export interface SmartAdvice {
+  dropCourses: { course: Course; semesterName: string; impact: string }[];
+  projectionAdvice: string | null;
+}
+
+export function getSmartAdvice(
+  semesters: Semester[],
+  scale: GradeScale[],
+  targetGPA?: number,
+  remainingSemesters?: number,
+  avgCreditsPerSemester?: number
+): SmartAdvice {
+  const dropCourses: SmartAdvice["dropCourses"] = [];
+
+  // Find courses that caused GPA to drop compared to previous semester
+  for (let i = 1; i < semesters.length; i++) {
+    const prev = semesters[i - 1];
+    const curr = semesters[i];
+    if (curr.gpa < prev.gpa && curr.courses.length > 0) {
+      // Courses scoring below previous semester's GPA dragged it down
+      const culprits = curr.courses
+        .filter(c => c.gradePoints < prev.gpa)
+        .sort((a, b) => a.gradePoints - b.gradePoints);
+      culprits.forEach(c => {
+        const gradeInfo = scale.find(g => g.grade === c.grade);
+        dropCourses.push({
+          course: c,
+          semesterName: curr.name,
+          impact: `Scored ${c.grade} (${c.gradePoints.toFixed(1)} pts) — below previous semester's ${prev.gpa.toFixed(2)} GPA`,
+        });
+      });
     }
   }
-  
-  // Credit hour distribution advice
-  const avgCredits = allCourses.reduce((sum, c) => sum + c.creditHours, 0) / semesters.length;
-  if (avgCredits > 20) {
-    advice.push("Consider reducing course load if struggling. Quality over quantity helps GPA.");
+
+  // Projection advice: minimum GP needed per course next semester
+  let projectionAdvice: string | null = null;
+  if (targetGPA && remainingSemesters && avgCreditsPerSemester && semesters.length > 0) {
+    const result = projectGPA(semesters, targetGPA, remainingSemesters, avgCreditsPerSemester, scale);
+    if (result.requiredGPA > 0) {
+      const matchingGrade = scale
+        .slice()
+        .sort((a, b) => a.points - b.points)
+        .find(g => g.points >= result.requiredGPA);
+      const gradeName = matchingGrade ? matchingGrade.grade : "A+";
+      projectionAdvice = `To reach a ${targetGPA.toFixed(2)} CGPA, you need a minimum of ${result.requiredGPA.toFixed(2)} GPA each remaining semester. Aim for at least grade "${gradeName}" (${matchingGrade?.points.toFixed(1) ?? "max"} pts) in every course.`;
+    } else {
+      projectionAdvice = `You've already surpassed your target of ${targetGPA.toFixed(2)}! Keep it up.`;
+    }
   }
-  
-  // General improvement tips based on current CGPA
-  const cgpa = calculateCGPA(semesters);
-  if (cgpa < 3.0) {
-    advice.push("Prioritize core courses and consider study groups for difficult subjects.");
-  } else if (cgpa >= 3.0 && cgpa < 4.0) {
-    advice.push("You're doing well! Focus on consistency and aim for A's in your strongest subjects.");
-  } else {
-    advice.push("Excellent performance! Consider challenging yourself with advanced courses.");
-  }
-  
-  if (strongCourses.length > 0) {
-    advice.push(
-      `Your strengths: ${strongCourses.slice(0, 3).map(c => c.name).join(", ")}. Leverage these for peer tutoring.`
-    );
-  }
-  
-  return advice;
+
+  return { dropCourses, projectionAdvice };
 }
 
 export function projectGPA(
