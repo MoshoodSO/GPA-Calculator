@@ -11,12 +11,15 @@ import { cn } from "@/lib/utils";
 interface ProjectionToolProps {
   semesters: Semester[];
   scale: GradeScale[];
+  targetGPA: number;
+  remainingSemesters: number;
+  avgCredits: number;
+  onTargetGPAChange: (v: number) => void;
+  onRemainingSemestersChange: (v: number) => void;
+  onAvgCreditsChange: (v: number) => void;
 }
 
-export function ProjectionTool({ semesters, scale }: ProjectionToolProps) {
-  const [targetGPA, setTargetGPA] = useState(4.0);
-  const [remainingSemesters, setRemainingSemesters] = useState(2);
-  const [avgCredits, setAvgCredits] = useState(18);
+export function ProjectionTool({ semesters, scale, targetGPA, remainingSemesters, avgCredits, onTargetGPAChange, onRemainingSemestersChange, onAvgCreditsChange }: ProjectionToolProps) {
   const [projection, setProjection] = useState<ReturnType<typeof projectGPA> | null>(null);
 
   const currentCGPA = calculateCGPA(semesters);
