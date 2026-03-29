@@ -128,9 +128,9 @@ const Index = () => {
 
           {/* Right Column - Analysis */}
           <div className="space-y-6">
+            <ProjectionTool semesters={semesters} scale={scale} />
             <GPTrendChart semesters={semesters} />
             <AdvicePanel semesters={semesters} scale={scale} />
-            <ProjectionTool semesters={semesters} scale={scale} />
           </div>
         </div>
       </main>
