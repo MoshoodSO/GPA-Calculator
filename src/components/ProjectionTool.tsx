@@ -52,7 +52,7 @@ export function ProjectionTool({ semesters, scale, targetGPA, remainingSemesters
               min={0}
               max={5}
               value={targetGPA}
-              onChange={(e) => setTargetGPA(parseFloat(e.target.value) || 0)}
+              onChange={(e) => onTargetGPAChange(parseFloat(e.target.value) || 0)}
               className="h-10"
             />
           </div>
@@ -63,7 +63,7 @@ export function ProjectionTool({ semesters, scale, targetGPA, remainingSemesters
               min={1}
               max={20}
               value={remainingSemesters}
-              onChange={(e) => setRemainingSemesters(parseInt(e.target.value) || 1)}
+              onChange={(e) => onRemainingSemestersChange(parseInt(e.target.value) || 1)}
               className="h-10"
             />
           </div>
@@ -74,7 +74,7 @@ export function ProjectionTool({ semesters, scale, targetGPA, remainingSemesters
               min={1}
               max={30}
               value={avgCredits}
-              onChange={(e) => setAvgCredits(parseInt(e.target.value) || 1)}
+              onChange={(e) => onAvgCreditsChange(parseInt(e.target.value) || 1)}
               className="h-10"
             />
           </div>
