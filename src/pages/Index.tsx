@@ -25,6 +25,9 @@ const loadFromStorage = <T,>(key: string, fallback: T): T => {
 const Index = () => {
   const [scale, setScale] = useState<GradeScale[]>(() => loadFromStorage(STORAGE_KEY_SCALE, DEFAULT_GRADING_SCALE));
   const [semesters, setSemesters] = useState<Semester[]>(() => loadFromStorage(STORAGE_KEY_SEMESTERS, []));
+  const [targetGPA, setTargetGPA] = useState(4.0);
+  const [remainingSemesters, setRemainingSemesters] = useState(2);
+  const [avgCredits, setAvgCredits] = useState(18);
 
   // Auto-save to localStorage on changes
   useEffect(() => {
@@ -128,9 +131,24 @@ const Index = () => {
 
           {/* Right Column - Analysis */}
           <div className="space-y-6">
-            <ProjectionTool semesters={semesters} scale={scale} />
+            <ProjectionTool
+              semesters={semesters}
+              scale={scale}
+              targetGPA={targetGPA}
+              remainingSemesters={remainingSemesters}
+              avgCredits={avgCredits}
+              onTargetGPAChange={setTargetGPA}
+              onRemainingSemestersChange={setRemainingSemesters}
+              onAvgCreditsChange={setAvgCredits}
+            />
             <GPTrendChart semesters={semesters} />
-            <AdvicePanel semesters={semesters} scale={scale} />
+            <AdvicePanel
+              semesters={semesters}
+              scale={scale}
+              targetGPA={targetGPA}
+              remainingSemesters={remainingSemesters}
+              avgCreditsPerSemester={avgCredits}
+            />
           </div>
         </div>
       </main>

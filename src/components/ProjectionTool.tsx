@@ -11,12 +11,15 @@ import { cn } from "@/lib/utils";
 interface ProjectionToolProps {
   semesters: Semester[];
   scale: GradeScale[];
+  targetGPA: number;
+  remainingSemesters: number;
+  avgCredits: number;
+  onTargetGPAChange: (v: number) => void;
+  onRemainingSemestersChange: (v: number) => void;
+  onAvgCreditsChange: (v: number) => void;
 }
 
-export function ProjectionTool({ semesters, scale }: ProjectionToolProps) {
-  const [targetGPA, setTargetGPA] = useState(4.0);
-  const [remainingSemesters, setRemainingSemesters] = useState(2);
-  const [avgCredits, setAvgCredits] = useState(18);
+export function ProjectionTool({ semesters, scale, targetGPA, remainingSemesters, avgCredits, onTargetGPAChange, onRemainingSemestersChange, onAvgCreditsChange }: ProjectionToolProps) {
   const [projection, setProjection] = useState<ReturnType<typeof projectGPA> | null>(null);
 
   const currentCGPA = calculateCGPA(semesters);
@@ -49,7 +52,7 @@ export function ProjectionTool({ semesters, scale }: ProjectionToolProps) {
               min={0}
               max={5}
               value={targetGPA}
-              onChange={(e) => setTargetGPA(parseFloat(e.target.value) || 0)}
+              onChange={(e) => onTargetGPAChange(parseFloat(e.target.value) || 0)}
               className="h-10"
             />
           </div>
@@ -60,7 +63,7 @@ export function ProjectionTool({ semesters, scale }: ProjectionToolProps) {
               min={1}
               max={20}
               value={remainingSemesters}
-              onChange={(e) => setRemainingSemesters(parseInt(e.target.value) || 1)}
+              onChange={(e) => onRemainingSemestersChange(parseInt(e.target.value) || 1)}
               className="h-10"
             />
           </div>
@@ -71,7 +74,7 @@ export function ProjectionTool({ semesters, scale }: ProjectionToolProps) {
               min={1}
               max={30}
               value={avgCredits}
-              onChange={(e) => setAvgCredits(parseInt(e.target.value) || 1)}
+              onChange={(e) => onAvgCreditsChange(parseInt(e.target.value) || 1)}
               className="h-10"
             />
           </div>

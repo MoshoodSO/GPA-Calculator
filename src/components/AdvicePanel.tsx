@@ -1,15 +1,19 @@
 import { Semester, GradeScale } from "@/types/gp";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { getAdvice } from "@/lib/gpCalculations";
-import { Lightbulb, ArrowRight } from "lucide-react";
+import { getSmartAdvice } from "@/lib/gpCalculations";
+import { Lightbulb, TrendingDown, Target } from "lucide-react";
 
 interface AdvicePanelProps {
   semesters: Semester[];
   scale: GradeScale[];
+  targetGPA?: number;
+  remainingSemesters?: number;
+  avgCreditsPerSemester?: number;
 }
 
-export function AdvicePanel({ semesters, scale }: AdvicePanelProps) {
-  const advice = getAdvice(semesters, scale);
+export function AdvicePanel({ semesters, scale, targetGPA, remainingSemesters, avgCreditsPerSemester }: AdvicePanelProps) {
+  const advice = getSmartAdvice(semesters, scale, targetGPA, remainingSemesters, avgCreditsPerSemester);
+  const hasContent = advice.dropCourses.length > 0 || advice.projectionAdvice;
 
   return (
     <Card className="animate-fade-in border-accent/20">
@@ -20,22 +24,53 @@ export function AdvicePanel({ semesters, scale }: AdvicePanelProps) {
           </div>
           <div>
             <CardTitle>Smart Advice</CardTitle>
-            <CardDescription>Personalized recommendations to boost your GPA</CardDescription>
+            <CardDescription>Insights on what affected your GPA and how to improve</CardDescription>
           </div>
         </div>
       </CardHeader>
-      <CardContent>
-        <div className="space-y-3">
-          {advice.map((tip, index) => (
-            <div
-              key={index}
-              className="flex items-start gap-3 p-3 rounded-lg bg-muted/50 border border-border/30 hover:border-primary/30 transition-colors"
-            >
-              <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-              <p className="text-sm leading-relaxed">{tip}</p>
+      <CardContent className="space-y-5">
+        {!hasContent && (
+          <p className="text-sm text-muted-foreground text-center py-4">
+            Add at least two semesters or set a projection target to get advice.
+          </p>
+        )}
+
+        {/* Courses that caused GPA drops */}
+        {advice.dropCourses.length > 0 && (
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 mb-2">
+              <TrendingDown className="h-4 w-4 text-destructive" />
+              <h4 className="text-sm font-semibold">Courses That Dropped Your GPA</h4>
             </div>
-          ))}
-        </div>
+            {advice.dropCourses.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-start gap-3 p-3 rounded-lg bg-destructive/5 border border-destructive/20"
+              >
+                <div className="flex-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium">{item.course.name}</span>
+                    <span className="text-xs text-muted-foreground">{item.semesterName}</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1">{item.impact}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Projection-based advice */}
+        {advice.projectionAdvice && (
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 mb-2">
+              <Target className="h-4 w-4 text-primary" />
+              <h4 className="text-sm font-semibold">Minimum GP to Hit Your Target</h4>
+            </div>
+            <div className="p-3 rounded-lg bg-primary/5 border border-primary/20">
+              <p className="text-sm leading-relaxed">{advice.projectionAdvice}</p>
+            </div>
+          </div>
+        )}
       </CardContent>
     </Card>
   );
