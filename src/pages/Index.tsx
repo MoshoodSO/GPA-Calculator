@@ -141,7 +141,7 @@ const Index = () => {
               onRemainingSemestersChange={setRemainingSemesters}
               onAvgCreditsChange={setAvgCredits}
             />
-            <GPTrendChart semesters={semesters} />
+            <GPTrendChart semesters={semesters} targetGPA={targetGPA} />
             <AdvicePanel
               semesters={semesters}
               scale={scale}
