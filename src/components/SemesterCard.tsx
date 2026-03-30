@@ -154,7 +154,7 @@ export function SemesterCard({ semester, scale, onUpdate, onDelete }: SemesterCa
               <div className="sm:col-span-1">
                 <Label className="text-xs text-muted-foreground">Course Name</Label>
                 <Input
-                  placeholder="e.g., Mathematics"
+                  placeholder="e.g., MAT 101"
                   value={newCourse.name}
                   onChange={(e) => setNewCourse({ ...newCourse, name: e.target.value })}
                   className="h-9"

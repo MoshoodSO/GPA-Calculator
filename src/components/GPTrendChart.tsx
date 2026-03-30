@@ -1,13 +1,14 @@
 import { Semester } from "@/types/gp";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, ComposedChart } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, ComposedChart, ReferenceLine } from "recharts";
 import { TrendingUp } from "lucide-react";
 
 interface GPTrendChartProps {
   semesters: Semester[];
+  targetGPA?: number;
 }
 
-export function GPTrendChart({ semesters }: GPTrendChartProps) {
+export function GPTrendChart({ semesters, targetGPA = 4.0 }: GPTrendChartProps) {
   const data = semesters.map((sem, index) => {
     const allCourses = semesters.slice(0, index + 1).flatMap(s => s.courses);
     const cgpa = allCourses.length > 0
@@ -91,6 +92,13 @@ export function GPTrendChart({ semesters }: GPTrendChartProps) {
               }}
               labelStyle={{ color: 'hsl(var(--foreground))', fontWeight: 600 }}
             />
+            <ReferenceLine
+              y={targetGPA}
+              stroke="hsl(var(--destructive))"
+              strokeDasharray="8 4"
+              strokeWidth={2}
+              label={{ value: `Target: ${targetGPA}`, position: 'right', fill: 'hsl(var(--destructive))', fontSize: 11, fontWeight: 600 }}
+            />
             <Area
               type="monotone"
               dataKey="gpa"
@@ -127,6 +135,10 @@ export function GPTrendChart({ semesters }: GPTrendChartProps) {
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-secondary" />
             <span className="text-sm text-muted-foreground">Cumulative GPA</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-0.5 bg-destructive" style={{ borderTop: '2px dashed' }} />
+            <span className="text-sm text-muted-foreground">Target CGPA</span>
           </div>
         </div>
       </CardContent>
