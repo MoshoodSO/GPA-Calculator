@@ -69,7 +69,7 @@ Visit the Lovable project and start prompting:
 Any changes made using Lovable are automatically committed to this repository.
 
 
----
+<!---
 
 ## ✏️ How Can I Edit This Code?
 
@@ -104,7 +104,7 @@ Make sure the following tools are installed on your system:
 Install Node.js using **nvm** (recommended):  
   - https://github.com/nvm-sh/nvm#installing-and-updating
 
----
+--->
 
 ## 🛠️ Local Setup
 
