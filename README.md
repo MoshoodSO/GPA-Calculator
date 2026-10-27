@@ -15,7 +15,7 @@ Designed for *simplicity, accuracy, and ease* — fits students at all levels, f
 
 ## 📁  Project Displays and Screenshots 
 
-**🎥 Demo**
+#**🎥 Demo**
 
 ![Demo](https://github.com/MoshoodSO/GPA-Calculator/blob/main/graphics/GPAdemo.gif)
 
