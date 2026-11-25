@@ -139,3 +139,12 @@ npm run dev
 ## 🙌 Credits
 
 Developed by [Shoyombo Moshood O.](https://linkedin.com/in/shoyombo-moshood-582003126/) as a personal project, this tool simplifies GPA calculations and enables users to track their academic goals effectively.
+
+## Contact
+
+
+- Name: Shoyombo Moshood Olanrewaju
+- GitHub: https://github.com/MoshoodSO
+- LinkedIn: https://www.linkedin.com/in/shoyombo-moshood-582003126
+- Personal site: https://moshoodso.vercel.app/
+- Email: shoyombomoshood1@gmail.com
